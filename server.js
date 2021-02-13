@@ -2,6 +2,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const uuid = require('uuid');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,10 +22,11 @@ app.get('/api/notes', (req, res) => res.json(data));
 //land any other undefined routes to index.html. Order matters! (any get routes defined after this line will still be routed to index.html)
 app.get("/*", (req, res) => res.sendFile(path.join(__dirname, 'public/index.html'))); 
 app.post('/api/notes', (req, res) => {
-  newNote = req.body;
-  // TODO unique id
+  let newNote = req.body;
+  let newId = uuid.v4();
+  newNote["id"] = newId;
   data.push(newNote);
-  fs.writeFileSync(path.join(__dirname, 'db/db.json'), JSON.stringify(data));
+  fs.writeFileSync(path.join(__dirname, 'db/db.json'), JSON.stringify(data, null, 2));
   res.json(newNote);
 });
 

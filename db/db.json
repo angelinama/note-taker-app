@@ -1,6 +1,12 @@
 [
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    }
+  {
+    "title": "Angelina's note",
+    "text": "Todo:\n1. add unique id to each note\n2. index.js need to store unique id to \"data-note\" for each note\n3.app.delete route in backend",
+    "id": "570c1b1e-598e-45b9-941c-5b20af0ed84e"
+  },
+  {
+    "title": "Chinese New Year",
+    "text": "The year of ox.",
+    "id": "e297762a-b658-4459-a564-e4c4dc143180"
+  }
 ]
